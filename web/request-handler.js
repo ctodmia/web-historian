@@ -16,9 +16,17 @@ fs.readFile(path.join(__dirname, './public/index.html'), function(err, html){
     res.end(data);
   });
   
+
+// POST
+// listen for post 
+// collect data from input @ index.html
+// store data in site.txt 
+
 }else if (req.method === 'POST'){
+  var chunk ='';
   req.on('data', function(html){
-    console.log('this is here');
+    chunk += html;
+    console.log('this is chunk', chunk);
 
   })
   req.on('end', function(){
@@ -26,7 +34,5 @@ fs.readFile(path.join(__dirname, './public/index.html'), function(err, html){
   })
 }
 
-
-
-
+//end of handleRequest//////////////////////////////////////////////////////////////////
 };
